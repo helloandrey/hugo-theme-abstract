@@ -1,5 +1,6 @@
 <meta charset="utf-8">
 <title>{{ .Title }} - {{ .Site.Title }}</title>
-{{ $style := resources.Get "sass/styles.scss" | toCSS }}
+{{ $options := (dict "targetPath" "/style.css" "outputStyle" "compressed") }}
+{{ $style := resources.Get "sass/main.scss" | resources.ToCSS $options }}
 <link rel="stylesheet" href="{{ $style.Permalink }}">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
