@@ -1,0 +1,12 @@
+<footer class="main-footer">
+    <div class="main-footer__nav">
+        {{ $currentPage := . }}
+        <ul>
+            {{ range .Site.Menus.footernav }}
+            <li>
+                <a title="{{ .Name }}" href="{{ .URL }}">{{ .Name }}</a>
+            </li>
+            {{ end }}
+        </ul>
+    </div>
+</footer>

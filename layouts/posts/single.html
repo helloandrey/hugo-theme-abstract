@@ -1,0 +1,54 @@
+
+{{ define "main" }}
+<article id="main">
+    <header id="header">
+        <h1 id="title">{{ .Title }}</h1>
+    </header>
+    <section id="content">
+        {{ .Content }}
+    </section>
+    <footer id="footer">
+        <div id="meta">
+            <div id="meta__category">
+                <ul>
+                    {{ if .Params.categories }}
+                    {{ if gt (len .Params.categories) 1 }}Categories:{{ else }}Category:{{ end }}
+                    {{ range $index, $category := .Params.categories }}
+                    {{ if gt $index 0 }}{{ end }}
+                    <li>
+                        <a href="{{ "categories/" | relURL }}{{ . | urlize }}">{{ . | humanize }}</a>
+                    </li>
+                    {{ end }}
+                    {{ end }}
+                </ul>
+            </div>
+            <div id="meta__words">
+                <span>{{ .WordCount }} words</span>
+            </div>
+            <div id="meta__tags">
+                <ul>
+                    {{ range .Params.Tags }}
+                    <li>
+                        <a href="/tags/{{ . | urlize }} ">{{ . }}</a>
+                    </li>
+                    {{ end }}
+                </ul>
+            </div>
+        </div>
+        <div id="nav">
+            <div id="nav__prev">
+                {{ with .PrevInSection }}
+                <span id="arrow">&larr;</span> 
+                <a class="previous" href="{{.Permalink}}"> {{.Title}}</a>
+                {{ end }}
+            </div>
+            <div id="nav__next">
+                <span id="arrow">&rarr;</span>
+                {{ with .PrevInSection }}
+                <a class="previous" href="{{.Permalink}}"> {{.Title}}</a> 
+                {{ end }}
+            </div>
+        </div>
+    </footer>
+</article>
+{{ end }}

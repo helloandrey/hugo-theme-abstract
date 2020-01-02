@@ -1,0 +1,23 @@
+{{ define "main" }}
+<article id="main">
+    <header id="header">
+        <h1 id="title">{{ .Title | humanize }}</h1>
+    </header>
+    <!-- "{{.Content}}" pulls from the markdown content of the corresponding _index.md -->
+    {{ with .Content }}
+    <section id="content">
+        {{- . -}}
+    </section>
+    {{ end }}
+    <section id="content">
+        <ul>
+            <!-- Ranges through content/post/*.md -->
+            {{ range .Pages.ByTitle }}
+            <li>
+                <a href="{{.Permalink}}">{{.Title}}</a>
+            </li>
+            {{ end }}
+        </ul>
+    </section>
+</article>
+{{ end }}

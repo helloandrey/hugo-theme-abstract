@@ -1,0 +1,45 @@
+{{ define "main" }}
+<article id="main">
+    <header id="header">
+        <h1 id="title">
+            All Notes
+        </h1>
+    </header>
+    <!-- "{{.Content}}" pulls from the markdown content of the corresponding _index.md -->
+    <section id="content">
+        <p>
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+        tempor invidunt ut labore et dolore magna aliquyam erat.
+        </p>
+    </section>
+    <section id="content">
+        <main id="notes">
+            <section id="notes__list">
+                <h2>
+                    Alphabetical order
+                </h2>
+                <ul>
+                    <!-- Ranges through content/post/*.md -->
+                    {{ range .Pages.ByTitle }}
+                    <li>
+                        <a href="{{.Permalink}}">{{.Title}}</a>
+                    </li>
+                    {{ end }}
+                </ul>
+            </section>
+            <section id="notes__latest">
+                <h2>Recently changed</h2>
+                <section id="notes__latest_list">
+                    <ol>
+                        {{ range first 10 .Site.RegularPages.ByLastmod.Reverse }}
+                        <li>
+                            <a href="{{.Permalink}}">{{.Title}}</a>
+                        </li>
+                        {{end}}
+                    </ol> 
+                </section>
+            </section>
+        </main>
+    </section>
+</article>
+{{ end }}

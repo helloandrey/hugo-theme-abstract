@@ -1,0 +1,21 @@
+<section id="homepage-categories">
+    <h2>Categories</h2>
+    <section id="homepage-categories__list">
+        {{ range $taxonomyname, $taxonomy := .Site.Taxonomies }}
+        {{ if eq "categories" $taxonomyname }}
+        {{ range $key, $value := $taxonomy }}
+        <article class="homepage-categories__list_item">
+            <h3>{{ $key | humanize }}</h3>
+            <ul>
+                {{ range $value.Pages }}
+                <li>
+                    <a href="{{ .Permalink }}">{{ .Title }}</a> 
+                </li>
+                {{ end }}
+            </ul>
+        </article>
+        {{ end }}
+        {{ end }}
+        {{ end }}
+    </section>
+</section>

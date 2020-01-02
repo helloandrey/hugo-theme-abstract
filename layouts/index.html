@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="{{ with .Site.LanguageCode }}{{ . }}{{ else }}en-US{{ end }}">
+    {{ partial "head.html" . }}
+    <body>
+        <main class="wrapper" role="main">
+            {{ partial "header.html" . }}
+            {{ partial "nav.html" . }}
+            {{ partial "topnav.html" . }}
+            {{ partial "darkmode.html" . }}
+            <article id="homepage" class="content">
+                <article id="main">
+                    <header id="header">
+                        <h1 id="title">
+                            {{ $.Site.Title }}
+                        </h1>   
+                    </header>
+                    <section id="content">
+                        {{ with .Content }}
+                        {{- . -}}
+                        {{ end }}
+                        <main id="wrapper">
+                            {{ partial "homepage.html" . }}
+                        </main>
+                    </section>
+                </article>
+            </article>
+            {{ partial "aside.html" . }}
+            {{ partial "ad.html" . }}
+            {{ partial "footer.html" . }}
+        </main>
+        <script src="/js/script.js"></script>
+    </body>
+</html>

@@ -1,0 +1,32 @@
+<aside class="side" role="complementary">
+    <section id="side__recent">
+        <h4 class="underline">Latest:</h4>
+        <ol>
+            {{ range first 5 .Site.RegularPages.ByLastmod.Reverse }}
+            <li>
+                <a href="{{.Permalink}}">{{.Title}}</a>
+            </li>
+            {{end}}
+        </ol> 
+    </section>
+    <section id="side__cat">
+        <h4 class="underline">Categories:</h4>
+        <ul>
+            {{ range $name, $taxonomy := .Site.Taxonomies.categories }}
+            <li>
+                <a href="/categories/{{ $name | urlize }}">{{ $name | humanize }}</a> ({{ $taxonomy.Count }})
+            </li>
+            {{end}}
+        </ul>
+    </section>
+    <section id="side__tag">
+        <h4 class="underline">Tags:</h4>
+        <ul>
+            {{ range $name, $taxonomy := .Site.Taxonomies.tags }}
+            <li>
+                <a href="/tags/{{ $name | urlize }}">{{ $name }}</a> ({{ $taxonomy.Count }})
+            </li>
+            {{end}}
+        </ul>
+    </section>
+</aside>

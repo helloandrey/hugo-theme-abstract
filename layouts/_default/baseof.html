@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="{{ with .Site.LanguageCode }}{{ . }}{{ else }}en-US{{ end }}">
+    {{ partial "head.html" . }}
+    <body>
+        <main class="wrapper" role="main">
+            {{ partial "header.html" . }}
+            {{ partial "nav.html" . }}
+            {{ partial "topnav.html" . }}
+            {{ partial "darkmode.html" . }}
+            <article class="content">
+                {{- block "main" . }}{{- end }}
+            </article>
+            {{ partial "aside.html" . }}
+            {{ partial "ad.html" . }}
+            {{ partial "footer.html" . }}
+        </main>
+        <script src="/js/script.js"></script>
+    </body>
+</html>

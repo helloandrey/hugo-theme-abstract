@@ -1,0 +1,7 @@
+name = "Abstract"
+description = "Minimal theme"
+homepage = "https://github.com/helloandrey/hugo-theme-abstract"
+[author]
+    name = "Andrey Gonyaevo"
+    homepage = "https://gonyaev.com"
+
