@@ -1,0 +1,32 @@
+h1, h2, h3, h4 {
+    color: var(--heading-color);
+    font-weight: normal;
+    &.underline {
+        @include heading-underline;
+    }
+}
+
+h1 {
+    font: 1.667rem/1 var(--font-family-serif); // 20pt
+    overflow: hidden;
+    padding-bottom: 0.17em;
+    border-bottom: 1px solid var(--border-color);
+}
+
+h2 {
+    font: 1.333rem/1 var(--font-family-serif); // 16pt
+    @include heading-underline;
+}
+
+h3 {
+    font: 0.917rem/1 var(--font-family-sans); // 10.5pt
+    font-weight: var(--font-strong);
+}
+
+strong {
+    font-weight: var(--font-strong);
+}
+
+.bulleted-list {
+    @include bulleted-list;
+}

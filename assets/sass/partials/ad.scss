@@ -1,0 +1,5 @@
+.ad {
+    grid-area: ad;
+    @include padding;
+    border: 1px solid var(--border-color);
+}

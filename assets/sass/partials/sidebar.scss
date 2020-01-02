@@ -1,0 +1,24 @@
+.side {
+    grid-area: sidebar;
+    border: 1px solid var(--border-color);
+    @include padding;
+
+    display: flex;    
+    flex-direction: column;
+
+    & section + section {
+        margin-top: 1em;
+    }
+    & #side__recent {
+        & ol {
+            @include number-list;
+        }
+    }
+    & #side__cat {
+    }
+    & #side__tag {
+    }
+    & h4 {
+        margin-bottom: .35em; 
+    }
+}

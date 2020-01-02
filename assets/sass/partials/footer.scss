@@ -1,0 +1,14 @@
+.main-footer {
+    grid-area: footer;
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: max-content;
+}
+
+.main-footer .main-footer__nav {
+    @include padding;
+    & ul {
+        @include horizontal-list-separated("|");
+
+    }
+}

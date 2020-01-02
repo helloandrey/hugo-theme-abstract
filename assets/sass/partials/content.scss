@@ -1,0 +1,136 @@
+.content {
+    grid-area: content;
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+    & ul {
+        @include vertical-list;
+    }
+}
+
+.content article#main {
+}
+
+.content article#main header#header {
+    @include padding;
+}
+
+.content article#main section#content {
+    @include padding;
+    & p {
+        font: 1.083rem/1.5 var(--font-family-serif);
+    } 
+    & p + p {
+        margin-top: .75em;
+    }
+    & p + h2 {
+        margin-top: 1.25em;
+    }
+    & p + h3 {
+        margin-top: 1.25em;
+    }
+    & p + pre {
+        margin-top: .55em;
+    }
+    & pre + p {
+        margin-top: .95em;
+    }
+    & p + .highlight {
+        margin-top: .55em;
+    }
+    & .highlight + p {
+        margin-top: .95em;
+    }
+    & p + table {
+        margin-top: .75em;
+    }
+    & table + p {
+        margin-top: .75em;
+    }
+    & h2 + table {
+        margin-top: .75em;
+    }
+    & h2, h3 {
+        margin-bottom: .55rem;
+    }
+    // pre, code
+    & 
+    h2 + pre,
+    h3 + dl,
+    h2 + ol,
+    h2 + table,
+    h3 + table,
+    h2 + .highlight,
+    h3 + pre,
+    h3 + .highlight {
+        margin-top: .55em;
+    }
+    & 
+    h2 + h3,
+    pre + h2, 
+    dl + h3, 
+    table + h2, 
+    table + h3, 
+    ol + h2, 
+    .highlight + h2,
+    pre + h3, 
+    .highlight + h3 {
+        margin-top: 1.25em;
+    }
+}
+
+.content article#main footer#footer {
+    border-top: 1px solid var(--border-color);
+}
+
+.content article#main footer#footer #meta {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas:
+    "category  words tags";
+    @include padding;
+
+    & #meta__category {
+        display: inline-flex;
+        flex-direction: row;
+        grid-area: category;
+        & ul {
+            @include horizontal-list-separated("|");
+        }
+    }
+    & #meta__words {
+        text-align: center;
+        grid-area: words;
+    }
+    & #meta__tags {
+        display: inline-flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: flex-end;
+        grid-area: tags;
+        & ul {
+            @include horizontal-list-separated("/");
+        }
+    }
+}
+
+.content article#main footer#footer #nav {
+    border-top: 1px solid var(--border-color);
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: space-between;
+    & #nav__prev {
+        @include padding;
+        & #arrow {
+            margin: 0 .4em 0 0;
+        }
+        border-right: 1px solid var(--border-color);
+    }
+    & #nav__next {
+        @include padding;
+        & #arrow {
+            margin: 0 0 0 .4em;
+        }
+        direction: rtl;
+
+    }
+}

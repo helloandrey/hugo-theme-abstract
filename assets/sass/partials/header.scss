@@ -1,0 +1,6 @@
+.main-head {
+    @include padding;
+    grid-area: header;
+    border-right: 1px solid var(--border-color);
+    border-top: 1px solid var(--border-color);
+}

@@ -1,0 +1,90 @@
+@mixin padding {
+    padding: 0.85em;
+}
+
+@mixin heading-underline {
+    overflow: hidden;
+    padding-bottom: 0.1em;
+    border-bottom: 1px solid;
+    border-image-source: linear-gradient(45deg, var(--border-color), var(--background-color));
+    border-image-slice: 1;
+}
+
+@mixin border-grdient {
+    overflow: hidden;
+    border-right: 1px solid;
+    border-image-source: linear-gradient(180deg, var(--border-color), var(--background-color));
+    border-image-slice: 1;
+    padding-bottom: 0.1em;
+}
+
+@mixin bulleted-list {
+    & ul {
+        padding-left: 1.25em;
+        list-style-type: none;
+    }
+
+    & ul li {
+    }
+    & ul li:before {
+        content: "•";
+        padding-right: .45em;
+        color: var(--text-colok);
+
+    }
+}
+/*
+ * Ref: https://gist.github.com/wzup/ee78c8eb3b39e91e8e124e7ac5073940
+ */
+
+// Standard horizontal list, using word-spacing trick to remove whitespace
+// between inline-block elements.
+@mixin horizontal-list {
+    padding: 0;
+    li {
+        display: inline-block;
+        word-spacing: 0;
+    }
+}
+
+// Horizontal list separated by :after content.
+@mixin horizontal-list-separated($separator:'') {
+    @include horizontal-list;
+    li:not(:last-child):after {
+        padding: 0 0.125em;
+        color: var(--border-color);
+        content: $separator;
+    }
+}
+
+// Horizontal list with padded links.
+@mixin horizontal-list-padded($vertical, $horizontal) {
+    @include horizontal-list;
+    li {
+        padding: $vertical 0;
+        a {
+            padding: $vertical $horizontal;
+        }
+    }
+}
+
+@mixin vertical-list {
+    li {
+        word-spacing: 0;
+    }
+}
+
+@mixin vertical-list-type($style:'') {
+    @include vertical-list;
+    li:before {
+        padding: 0 0.25em 0 0;
+        content: $style;
+    }
+}
+
+@mixin number-list {
+    list-style-position: inside;
+    list-style-type: decimal;
+    li {
+    }
+}

@@ -1,0 +1,63 @@
+#darkmode {
+    grid-area: darkmode;
+    @include padding;
+    border-left: 1px solid var(--border-color);
+}
+
+/*Simple css to style it like a toggle switch*/
+.theme-switch-wrapper {
+    display: flex;
+    align-items: center;
+}
+.theme-switch {
+    display: inline-block;
+    height: 1.5em;
+    position: relative;
+    width: 3em;
+}
+
+.theme-switch input {
+    display:none;
+}
+
+.slider {
+    color: var(--text-color);
+    background-color: var(--gray-200);
+    bottom: 0;
+    cursor: pointer;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: .1s;
+}
+
+.slider:before {
+    background-color: #fff;
+    top: .45em;
+    bottom: .5em;
+    left: .4em;
+    content: "";
+    height: 10px;
+    position: absolute;
+    transition: .1s;
+    width: 10px;
+}
+
+input:checked + .slider {
+    background-color: var(--gray-200);
+}
+
+input:checked + .slider:before {
+    background-color: var(--gray-400);
+    transform: translateX(1.4em);
+}
+
+.slider.round {
+    border-radius: 2px;
+}
+
+.slider.round:before {
+    border-radius: 2px;
+}
+
