@@ -28,7 +28,5 @@
             {{ partial "ad.html" . }}
             {{ partial "footer.html" . }}
         </main>
-	{{ $script := resources.Get "js/script.js" }}
-        <script src="{{ $script.Permalink }}"></script>
     </body>
 </html>
